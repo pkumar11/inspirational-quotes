@@ -49,9 +49,24 @@
 
 
   const btn=document.getElementById('generate-btn');
+  var i=0;
 btn.addEventListener("click",()=>{
 let random=Math.floor(Math.random()*quotes.length);
-console.log(random);
+i++;
+
+if(i==9){
+  alert("The  9 instances are up")
+  var name=prompt("Enter a new Quote ");
+  var auth=prompt("Enter the Auther");
+  quotes.push({
+quote:name,
+author:auth
+  });
+}
+document.getElementById("back").style.backgroundColor=randomColors();
+function randomColors() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
 document.getElementById('quote').textContent=quotes[random].quote;
 document.querySelector(".author").textContent=quotes[random].author;
 })
